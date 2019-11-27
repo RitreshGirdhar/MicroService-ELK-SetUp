@@ -1,5 +1,7 @@
 FROM docker.elastic.co/logstash/logstash:7.4.2
 
+VOLUME /datalog
+
 RUN rm -f /usr/share/logstash/pipeline/logstash.conf
 RUN rm -f /usr/share/logstash/config/logstash.yml
 
