@@ -13,6 +13,13 @@ Now start kibana and link with elastic search docker
 docker run --name "kibana" --link "elasticsearch:elasticsearch" -p 5601:5601  --volume="/var/run/docker.sock:/var/run/docker.sock:ro" docker.elastic.co/kibana/kibana:7.4.2
 ```
 
+Before running Logstash docker , lets build it 
+
+```
+cd logstash
+docker build -t 'logstash' .
+```
+
 Finally start logstash.
 ```
 docker run --name "logstash" -p 5044:5044 --link "elasticsearch:elasticsearch" --volume="/var/run/docker.sock:/var/run/docker.sock:ro" -v "/app/elasticsearch/logstash-logs/:/datalog/" logstash
